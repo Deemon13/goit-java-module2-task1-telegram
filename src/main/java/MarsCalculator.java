@@ -20,15 +20,15 @@ class MarsCalculator {
         MarsCalculator calc = new MarsCalculator();
 
         //Should be 6
-        System.out.println("math.sum(1, 2, 3) = " + calc.sum(1, 2, 3));
+        System.out.println("calc.sum(1, 2, 3) = " + calc.sum(1, 2, 3));
 
         //Should be -4
-        System.out.println("math.sub(1, 2, 3) = " + calc.sub(1, 2, 3));
+        System.out.println("calc.sub(1, 2, 3) = " + calc.sub(1, 2, 3));
 
         //Should be -24
-        System.out.println("math.multiply(1, 2, 3) = " + calc.multiply(1, 2, 3));
+        System.out.println("calc.multiply(1, 2, 3) = " + calc.multiply(1, 2, 3));
 
         //Should be 0.6
-        System.out.println("math.divide(1, 2, 3) = " + calc.divide(1, 2, 3));
+        System.out.println("calc.divide(1, 2, 3) = " + calc.divide(1, 2, 3));
     }
 }
