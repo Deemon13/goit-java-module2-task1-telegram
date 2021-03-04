@@ -2,6 +2,7 @@ class ScoreCounter {
     public int addScore(int currentScore, int amount) {
         return currentScore += amount;
     }
+
     //Expected output
     public static void main(String[] args) {
         ScoreCounter counter = new ScoreCounter();
