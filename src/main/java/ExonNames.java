@@ -4,6 +4,10 @@ public class ExonNames {
         return name1.equals(name2);
     }
 
+    public String makeFullName(String firstName, String lastName) {
+        return String.join(" ", firstName.toLowerCase(), lastName.toUpperCase());
+    }
+
     //Test output
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
@@ -17,5 +21,12 @@ public class ExonNames {
         //Should be false
         boolean namesEqualThird = names.areNamesEqual("gork", "Maxon");
         System.out.println("names.areNamesEqual(\"gork\", \"Maxon\") = " + namesEqualThird);
+
+        //Should be "exor BIGO"
+        String fullName = names.makeFullName("exor", "bigo");
+        System.out.println("names.makeFullName(\"exor\", \"bigo\") = " + fullName);
+        //Should be "exor MAX"
+        String fullNameSecond = names.makeFullName("Exor", "Max");
+        System.out.println("names.makeFullName(\"Exor\", \"Max\") = " + fullNameSecond);
     }
 }
