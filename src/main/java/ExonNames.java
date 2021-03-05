@@ -12,6 +12,18 @@ public class ExonNames {
         return name.toLowerCase().contains("a") || name.toLowerCase().contains("o");
     }
 
+    public String getNameCode(String name) {
+        String firstChar = Character.toString(name.toUpperCase().charAt(0));
+        String lastChar = Character.toString(name.toUpperCase().charAt(name.length() - 1));
+        return firstChar + lastChar;
+    }
+
+    /* Other Variant
+    public String getNameCode(String name) {
+        String code = name.charAt(0) + String.valueOf( name.charAt(name.length() - 1));
+        return code.toUpperCase();
+    }*/
+
     //Test output
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
@@ -42,5 +54,15 @@ public class ExonNames {
         //Should be false
         boolean isNameLuckyThird = names.isNameLucky("Igun");
         System.out.println("names.isNameLucky(\"Igun\") = " + isNameLuckyThird);
+
+        //Should be BA
+        String nameCode = names.getNameCode("boRA");
+        System.out.println("names.getNameCode(\"boRA\") = " + nameCode);
+        //Should be MT
+        String nameCodeSecond = names.getNameCode("Morat");
+        System.out.println("names.getNameCode(\"Morat\") = " + nameCodeSecond);
+        //Should be X
+        String nameCodeThird = names.getNameCode("x");
+        System.out.println("names.getNameCode(\"x\") = " + nameCodeThird);
     }
 }
