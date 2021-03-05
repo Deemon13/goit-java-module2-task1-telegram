@@ -18,11 +18,15 @@ public class ExonNames {
         return firstChar + lastChar;
     }
 
-    /* Other Variant
+    /* Other Version
     public String getNameCode(String name) {
         String code = name.charAt(0) + String.valueOf( name.charAt(name.length() - 1));
         return code.toUpperCase();
     }*/
+
+    public boolean isMoneyName(String name) {
+        return (name.charAt(0) >= '0' && name.charAt(0) <= '9') && (name.charAt(name.length() - 1) >= '0' && name.charAt(name.length() - 1) <= '9');
+    }
 
     //Test output
     public static void main(String[] args) {
@@ -64,5 +68,15 @@ public class ExonNames {
         //Should be X
         String nameCodeThird = names.getNameCode("x");
         System.out.println("names.getNameCode(\"x\") = " + nameCodeThird);
+
+        //Should be true
+        boolean isMoneyName = names.isMoneyName("31Boss31");
+        System.out.println("names.isMoneyName(\"31Boss31\") = " + isMoneyName);
+        //Should be true
+        boolean isMoneyNameSecond = names.isMoneyName("7Max9");
+        System.out.println("names.isMoneyName(\"7Max9\") = " + isMoneyNameSecond);
+        //Should be false
+        boolean isMoneyNameThird = names.isMoneyName("77Hero");
+        System.out.println("names.isMoneyName(\"77Hero\") = " + isMoneyNameThird);
     }
 }
