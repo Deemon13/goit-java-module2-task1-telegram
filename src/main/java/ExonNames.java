@@ -58,6 +58,12 @@ public class ExonNames {
                 .replace("NO", "yes");
     }
 
+    public String makeNameClean(String name) {
+        String nameCl = name.strip();
+        String nameCleaned = String.join("", "CLEAN", nameCl, "CLEAN");
+        return nameCleaned;
+    }
+
     //Test output
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
@@ -134,5 +140,15 @@ public class ExonNames {
         //Should be Berul
         String positiveFourth = names.makeNamePositive("Berul");
         System.out.println("names.makeNamePositive(\"Berul\") = " + positiveFourth);
+
+        //Should be CLEANdirtyCLEAN
+        String cleanName = names.makeNameClean(" dirty ");
+        System.out.println("names.makeNameClean(\" dirty \") = " + cleanName);
+        //Should be CLEANbigarCLEAN
+        String cleanNameSecond = names.makeNameClean("bigar");
+        System.out.println("names.makeNameClean(\"bigar\") = " + cleanNameSecond);
+        //Should be CLEANytukiCLEAN
+        String cleanNameThird = names.makeNameClean("   ytuki");
+        System.out.println("names.makeNameClean(\"   ytuki\") = " + cleanNameThird);
     }
 }
