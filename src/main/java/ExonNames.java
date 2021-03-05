@@ -8,6 +8,10 @@ public class ExonNames {
         return String.join(" ", firstName.toLowerCase(), lastName.toUpperCase());
     }
 
+    public boolean isNameLucky(String name) {
+        return name.toLowerCase().contains("a") || name.toLowerCase().contains("o");
+    }
+
     //Test output
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
@@ -28,5 +32,15 @@ public class ExonNames {
         //Should be "exor MAX"
         String fullNameSecond = names.makeFullName("Exor", "Max");
         System.out.println("names.makeFullName(\"Exor\", \"Max\") = " + fullNameSecond);
+
+        //Should be true
+        boolean isNameLucky = names.isNameLucky("Bigo");
+        System.out.println("names.isNameLucky(\"Bigo\") = " + isNameLucky);
+        //Should be true
+        boolean isNameLuckySecond = names.isNameLucky("Exma");
+        System.out.println("names.isNameLucky(\"Exma\") = " + isNameLuckySecond);
+        //Should be false
+        boolean isNameLuckyThird = names.isNameLucky("Igun");
+        System.out.println("names.isNameLucky(\"Igun\") = " + isNameLuckyThird);
     }
 }
