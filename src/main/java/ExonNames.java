@@ -18,7 +18,7 @@ public class ExonNames {
         return firstChar + lastChar;
     }
 
-    /* Other Version
+    /* Other version of getNameCode()
     public String getNameCode(String name) {
         String code = name.charAt(0) + String.valueOf( name.charAt(name.length() - 1));
         return code.toUpperCase();
@@ -26,6 +26,22 @@ public class ExonNames {
 
     public boolean isMoneyName(String name) {
         return (name.charAt(0) >= '0' && name.charAt(0) <= '9') && (name.charAt(name.length() - 1) >= '0' && name.charAt(name.length() - 1) <= '9');
+    }
+
+    /* Other version of isMoneyName()
+        public boolean isMoneyName(String name) {
+        char firstLetter = name.charAt(0);
+        char lastLetter = name.charAt(name.length() - 1);
+
+        boolean firstLetterOk = firstLetter >= '0' && firstLetter <= '9';
+        boolean lastLetterOk = lastLetter >= '0' && lastLetter <= '9';
+
+        return firstLetterOk && lastLetterOk;
+    }
+     */
+
+    public boolean isInvisibleName(String name) {
+        return name.length() != 0 && name.isBlank();
     }
 
     //Test output
@@ -78,5 +94,18 @@ public class ExonNames {
         //Should be false
         boolean isMoneyNameThird = names.isMoneyName("77Hero");
         System.out.println("names.isMoneyName(\"77Hero\") = " + isMoneyNameThird);
+
+        //Should be true
+        boolean isInvisible = names.isInvisibleName(" ");
+        System.out.println("names.isInvisibleName(\" \") = " + isInvisible);
+        //Should be true
+        boolean isInvisibleSecond = names.isInvisibleName("");
+        System.out.println("names.isInvisibleName(\"\") = " + isInvisibleSecond);
+        //Should be true
+        boolean isInvisibleThird = names.isInvisibleName("\n");
+        System.out.println("names.isInvisibleName(\"\n\") = " + isInvisibleThird);
+        //Should be false
+        boolean isInvisibleFourth = names.isInvisibleName("\nMiag");
+        System.out.println("names.isInvisibleName(\"\nMiag\") = " + isInvisibleFourth);
     }
 }
