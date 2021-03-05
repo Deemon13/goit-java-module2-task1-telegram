@@ -11,6 +11,10 @@ public class MoonRobot {
         return (isEngineWorking == true && isRobotStanding == false) || (isEngineWorking == false && isRobotStanding == true);
     }
 
+    public boolean shouldSleep(boolean isDayNow) {
+        return !isDayNow;
+    }
+
     //Test output
     public static void main(String[] args) {
         MoonRobot robot = new MoonRobot();
@@ -29,5 +33,10 @@ public class MoonRobot {
         System.out.println("areSensorsOk(true, true) = " + robot.areSensorsOk(true, true));
         //Should be true
         System.out.println("areSensorsOk(false, true) = " + robot.areSensorsOk(false, true));
+
+        //Should be false
+        System.out.println("shouldSleep(true) = " + robot.shouldSleep(true));
+        //Should be true
+        System.out.println("shouldSleep(false) = " + robot.shouldSleep(false));
     }
 }
