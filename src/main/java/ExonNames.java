@@ -44,6 +44,18 @@ public class ExonNames {
         return name.length() != 0 && name.isBlank();
     }
 
+    /* other version
+        public boolean isInvisibleName(String name) {
+        return name.strip().isEmpty();
+    }
+     */
+
+    public String makeNamePositive(String name) {
+        String nameLower = name.toLowerCase();
+        String posName = nameLower.replace("no", "yes");
+        return posName;
+    }
+
     //Test output
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
@@ -107,5 +119,18 @@ public class ExonNames {
         //Should be false
         boolean isInvisibleFourth = names.isInvisibleName("\nMiag");
         System.out.println("names.isInvisibleName(\"\nMiag\") = " + isInvisibleFourth);
+
+        //Should be YesMont
+        String positive = names.makeNamePositive("NoMont");
+        System.out.println("names.makeNamePositive(\"NoMont\") = " + positive);
+        //Should be yesmad
+        String positiveSecond = names.makeNamePositive("Nomad");
+        System.out.println("names.makeNamePositive(\"Nomad\") = " + positiveSecond);
+        //Should be Heyest
+        String positiveThird = names.makeNamePositive("Henot");
+        System.out.println("names.makeNamePositive(\"Henot\") = " + positiveThird);
+        //Should be Berul
+        String positiveFourth = names.makeNamePositive("Berul");
+        System.out.println("names.makeNamePositive(\"Berul\") = " + positiveFourth);
     }
 }
