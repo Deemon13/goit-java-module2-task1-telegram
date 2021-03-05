@@ -51,9 +51,11 @@ public class ExonNames {
      */
 
     public String makeNamePositive(String name) {
-        String nameLower = name.toLowerCase();
-        String posName = nameLower.replace("no", "yes");
-        return posName;
+        return name
+                .replace("no", "yes")
+                .replace("No", "yes")
+                .replace("nO", "yes")
+                .replace("NO", "yes");
     }
 
     //Test output
