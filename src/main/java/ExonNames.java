@@ -64,6 +64,16 @@ public class ExonNames {
         return nameCleaned;
     }
 
+    /* other version
+        public String makeNameClean(String name) {
+        return "CLEAN" + name.strip() + "CLEAN";
+    }
+     */
+
+    public String makeHalfOfName(String name) {
+        return name.substring(0, name.length() / 2);
+    }
+
     //Test output
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
@@ -150,5 +160,15 @@ public class ExonNames {
         //Should be CLEANytukiCLEAN
         String cleanNameThird = names.makeNameClean("   ytuki");
         System.out.println("names.makeNameClean(\"   ytuki\") = " + cleanNameThird);
+
+        //Should be Gu
+        String halfOfName = names.makeHalfOfName("Gurk");
+        System.out.println("names.makeHalfOfName(\"Gurk\") = " + halfOfName);
+        //Should be Magic
+        String halfOfNameSecond = names.makeHalfOfName("Magicoraxi");
+        System.out.println("names.makeHalfOfName(\"Magicoraxi\") = " + halfOfNameSecond);
+        //Should be Java
+        String halfOfNameThird = names.makeHalfOfName("Javametro");
+        System.out.println("names.makeHalfOfName(\"Javametro\") = " + halfOfNameThird);
     }
 }
