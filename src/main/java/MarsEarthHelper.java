@@ -7,6 +7,10 @@ public class MarsEarthHelper {
         return (byte) (garden1Count + garden2Count);
     }
 
+    public float calculateTotalAppleWeight(double treeAge) {
+        return (float) (treeAge * 9.18);
+    }
+
     public static void main(String[] args) {
         MarsEarthHelper helper = new MarsEarthHelper();
 
@@ -23,5 +27,8 @@ public class MarsEarthHelper {
         System.out.println("countAppleCount(10, 30) = " + helper.countAppleCount(10, 30));
         //Should be 51
         System.out.println("countAppleCount(50, 1) = " + helper.countAppleCount(50, 1));
+
+        //Should be 9.18
+        System.out.println("calculateTotalAppleWeight(1) = " + helper.calculateTotalAppleWeight(1));
     }
 }
